@@ -1,0 +1,251 @@
+### Roles
+### //Crear Rol
+POST http://localhost:5000/roles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUxMDgzNiwiZXhwIjoxNzUyNTk3MjM2fQ.KsWdOcAZJl3YgjdZYLcS-nCEdMwBdpLA19qdfMRk3HI
+
+{
+  "nombre_rol": "test"
+}
+
+### //Obtener todos los roles
+GET http://localhost:5000/roles
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xfdXN1YXJpbyI6MiwiaWF0IjoxNzUyNDI4NDg3LCJleHAiOjE3NTI1MTQ4ODd9.9s7uwRDWuzu0pJUzYdZ-CyaxbSrZxbc4ci5AAstFmeU
+
+
+### //Actualizar rol
+PUT http://localhost:5000/roles/14
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjQzOTE5NCwiZXhwIjoxNzUyNTI1NTk0fQ.m4Xl6QdDZu_YIzH7Ntwn-TgyoSZaoGyVrBpH1FS0POU
+Content-Type: application/json
+
+{
+    "nombre_rol": "testUpdated2"
+}
+
+
+### //Eliminar rol
+DELETE http://localhost:5000/roles/15
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUxMDgzNiwiZXhwIjoxNzUyNTk3MjM2fQ.KsWdOcAZJl3YgjdZYLcS-nCEdMwBdpLA19qdfMRk3HI
+Content-Type: application/json
+
+### Usuarios
+
+### // Crear usuario Admin
+POST http://localhost:5000/usuarios/registro
+Content-Type: application/json
+
+{
+  "nombre": "Keneth",
+  "correo": "kenethgarita@gmail.com",
+  "contrasena": "123",
+  "tipo_usuario": 10,
+  "biografia": "Joven con ganas de aprender",
+  "cv_url": "http://mi-cv.com"
+}
+
+### // Crear usuario empresa
+POST http://localhost:5000/usuarios/registro
+Content-Type: application/json
+
+{
+  "nombre": "userEmpresa",
+  "correo": "user@gmail.com",
+  "contrasena": "123",
+  "tipo_usuario": 2,
+  "biografia": "Empresa",
+  "cv_url": "http://mi-cv.com"
+}
+### // Crear usuario
+POST http://localhost:5000/usuarios/registro
+Content-Type: application/json
+
+{
+  "nombre": "usertest",
+  "correo": "usertest@gmail.com",
+  "contrasena": "123",
+  "tipo_usuario": 1,
+  "biografia": "Usuario",
+  "cv_url": "http://mi-cv.com"
+}
+### //Login
+POST http://localhost:5000/usuarios/login
+Content-Type: application/json
+
+{
+  "nombre": "Keneth",
+  "contrasena": "123"
+}
+
+### //Login
+POST http://localhost:5000/usuarios/login
+Content-Type: application/json
+
+{
+  "nombre": "userEmpresa",
+  "contrasena": "123"
+}
+###Login
+POST http://localhost:5000/usuarios/login
+Content-Type: application/json
+
+{
+  "nombre": "user2",
+  "contrasena": "123"
+}
+###
+POST http://localhost:5000/usuarios/login
+Content-Type: application/json
+
+{
+  "nombre": "Nombre de otro usuario",
+  "contrasena": "123"
+}
+
+###Ver mi perfil
+GET http://localhost:5000/usuarios/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjYyNDgxNSwiZXhwIjoxNzUyNzExMjE1fQ.9ysMwH4zkTpKIGurbvscYC-QmCtqfOXzFWBKnfdE9x4
+### Listar todos los usuarios (solo admin)
+GET http://localhost:5000/usuarios
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjYyNDgxNSwiZXhwIjoxNzUyNzExMjE1fQ.9ysMwH4zkTpKIGurbvscYC-QmCtqfOXzFWBKnfdE9x4
+
+### Editar usuario (admin o usuario)
+PUT http://localhost:5000/usuarios/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjo2LCJyb2xfdXN1YXJpbyI6MSwiaWF0IjoxNzUyNjI1MDA3LCJleHAiOjE3NTI3MTE0MDd9.8lmjPFPrvkgpgwlfpK2Lk4rfwh0R0GlBc-HO0sorV9I
+Content-Type: application/json
+
+{
+  "nombre": "usertest",
+  "correo": "otro@correo.com",
+  "biografia": "Biografía actualizada por admin",
+  "cv_url": "http://cv-otro.com/actualizado.pdf"
+}
+###Eliminar usuario (solo admin)
+DELETE http://localhost:5000/usuarios/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjYyNTA0MCwiZXhwIjoxNzUyNzExNDQwfQ.dAPcbTr0rIb48G-IWrYzURuB7qWAm5xgO6I69pkhS0c
+
+
+
+### Categorias
+### Crear categoria
+POST http://localhost:5000/categorias
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUxMTg5MCwiZXhwIjoxNzUyNTk4MjkwfQ.9Lsgp8cVqqBiikM_H1oj7ozOyHGlEnykp3KSPBr88_Y
+
+{
+  "nombre_categoria": "test"
+}
+
+### Obtener todas las categorias
+GET http://localhost:5000/categorias
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUxMTg5MCwiZXhwIjoxNzUyNTk4MjkwfQ.9Lsgp8cVqqBiikM_H1oj7ozOyHGlEnykp3KSPBr88_Y
+
+### Actualizar categorias
+PUT http://localhost:5000/categorias/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUxMTg5MCwiZXhwIjoxNzUyNTk4MjkwfQ.9Lsgp8cVqqBiikM_H1oj7ozOyHGlEnykp3KSPBr88_Y
+Content-Type: application/json
+
+{
+    "nombre_categoria": "testUpdated"
+}
+
+
+
+### Oportunidades
+
+### Obtener todas las oportunidades
+GET http://localhost:5000/oportunidades
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjU1MjMzOCwiZXhwIjoxNzUyNjM4NzM4fQ.cr8x78qeCkYXfZGDftoMnqSq0ZRpHAZ9uASY5Eeu5_E
+
+### Obtener por categoría
+GET http://localhost:5000/oportunidades?categoria=pasantía
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUyNzcxMSwiZXhwIjoxNzUyNjE0MTExfQ.ihOZot3noRKFz-chyvfjHkocSJu48WK-R0APhLdjBuI
+
+### Crear (entidad/admin)
+POST http://localhost:5000/oportunidades
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUyNzcxMSwiZXhwIjoxNzUyNjE0MTExfQ.ihOZot3noRKFz-chyvfjHkocSJu48WK-R0APhLdjBuI
+Content-Type: application/json
+
+{
+  "titulo": "Test",
+  "descripcion": "Test",
+  "ubicacion": "San José",
+  "tipo_categoria": 2,
+  "fecha_inicio": "2025-08-01",
+  "fecha_fin": "2025-08-15"
+}
+
+
+### Actualizar
+PUT http://localhost:5000/oportunidades/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUyODA4NSwiZXhwIjoxNzUyNjE0NDg1fQ.D6X90A-NXt_qVEHVGbYxcayFzubj0oOXUG_d8UJ6Ugo
+Content-Type: application/json
+
+{
+  "titulo": "Voluntariado actualizado",
+  "descripcion": "Nueva descripción",
+  "ubicacion": "Cartago",
+  "tipo_categoria": 1,
+  "fecha_inicio": "2025-08-05",
+  "fecha_fin": "2025-08-20"
+}
+
+
+### Eliminar
+DELETE http://localhost:5000/oportunidades/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjUyODA4NSwiZXhwIjoxNzUyNjE0NDg1fQ.D6X90A-NXt_qVEHVGbYxcayFzubj0oOXUG_d8UJ6Ugo
+
+
+
+
+### Postulaciones
+### Obtener posatulaciones
+GET http://localhost:5000/postulaciones
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjU1MzAxOSwiZXhwIjoxNzUyNjM5NDE5fQ.59gsp_7b3ISWejyAD7xMmH2jcdm5OO6TlfwgiavZe7E
+
+###Crear postulacion
+POST http://localhost:5000/postulaciones
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjozLCJyb2xfdXN1YXJpbyI6MSwiaWF0IjoxNzUyNTUyOTI0LCJleHAiOjE3NTI2MzkzMjR9.98b7nb_ZehLsbKKvTfJoqwCEcmwxhn7avBhkqjfKPAk
+Content-Type: application/json
+
+{
+  "id_oportunidad": 3,
+  "mensaje": "Estoy muy interesado en esta oportunidad"
+}
+
+###Cambiar estado postulacion 
+PATCH http://localhost:5000/postulaciones/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjU1MzAxOSwiZXhwIjoxNzUyNjM5NDE5fQ.59gsp_7b3ISWejyAD7xMmH2jcdm5OO6TlfwgiavZe7E
+Content-Type: application/json
+
+{
+  "estado": "aceptada"
+}
+
+### Eliminar postulacion
+DELETE http://localhost:5000/postulaciones/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjozLCJyb2xfdXN1YXJpbyI6MSwiaWF0IjoxNzUyNTUzMTI4LCJleHAiOjE3NTI2Mzk1Mjh9.lT6qIn4IYyPonaCow84Nwi_RqaNMVW4jcKlkAykNJMs
+
+
+
+### Experiencias 
+### Obtener experiencias
+GET http://localhost:5000/experiencias
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjozLCJyb2xfdXN1YXJpbyI6MSwiaWF0IjoxNzUyNTUzOTQwLCJleHAiOjE3NTI2NDAzNDB9.hX1ahb4dADxgxT4cRbkh0xSR7DGEkKkUBwr3AIy1PW4
+
+### Crear experienncias
+POST http://localhost:5000/experiencias
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjU1Mzg0MiwiZXhwIjoxNzUyNjQwMjQyfQ.pQjSmvz2xYqwz4GuWamW0cRYjrerocB3Gq3TFrOgzgo
+Content-Type: application/json
+
+{
+  "id_usuario": 3,
+  "id_oportunidad": 3,
+  "descripcion": "Trabajo realizado durante la pasantía",
+  "fecha_inicio": "2025-08-01",
+  "fecha_fin": "2025-08-15",
+  "comentario_final": "Excelente desempeño"
+}
+
+### Elimina experiencia
+DELETE http://localhost:5000/experiencias/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJyb2xfdXN1YXJpbyI6MTAsImlhdCI6MTc1MjU1Mzg0MiwiZXhwIjoxNzUyNjQwMjQyfQ.pQjSmvz2xYqwz4GuWamW0cRYjrerocB3Gq3TFrOgzgo
